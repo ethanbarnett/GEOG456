@@ -16,24 +16,14 @@ td, th {
 
 tr:nth-child(even) {
   background-color: #dddddd;
-}
-
-td.impact.magnitude{
-    background-color: beige;
-}
-
-/* style code for the magnitude */
-
-td.time.day{
-    background-color: blanchedalmond;
-}
-
-/* style cocde for the date */  
+}  
 
 </style>
 </head>
 
 <script src="papa.html">
+
+  // the problem is here, for some reason I cannot call the dataset in
 
 </script>
 
@@ -57,10 +47,10 @@ td.time.day{
         var myNewCell2 = document.createElement('td');
         myNewCell1.innerText = papa.objects[i].time.day;
         myNewCell2.innerText = papa.objects[i].impact.magnitude;
-        myNewCell2.className = papa.objects[i].impact.magnitude; 
-        if(papa.objects[i].time.day == 'Republican') {myNewCell2.style.backgroundColor = 'red'}
-        if(papa.objects[i].time.day == 'Democrat') {myNewCell2.style.backgroundColor = 'blue'}
-        if(papa.objects[i].time.day == 'Independant') {myNewCell2.style.backgroundColor = 'yellow'}
+        
+        if(papa.objects[i].impact.magnitude == '7.0, 7.1, 7.2, 7.3, 7.4, 7.5, 7.6, 7.7, 7.8, 7.9') {myNewCell2.style.backgroundColor = 'red'}
+        if(papa.objects[i].impact.magnitude == '5.0, 5.1, 5.2, 5.3, 5.4, 5.5, 5.6, 5.7, 5.8, 5.9') {myNewCell2.style.backgroundColor = 'orange'}
+        if(papa.objects[i].impact.magnitude == '1.0, 1.1, 1.2, 1.3, 1.4, 1.5, 1.6, 1.7, 1.8, 1.9') {myNewCell2.style.backgroundColor = 'yellow'}
 
         myNewRow.append(myNewCell1)
         myNewRow.append(myNewCell2)
