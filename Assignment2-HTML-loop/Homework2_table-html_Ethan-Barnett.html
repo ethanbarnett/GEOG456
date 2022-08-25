@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+table {
+  font-family: arial, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+}
+
+td, th {
+  border: 1px solid #dddddd;
+  text-align: left;
+  padding: 8px;
+}
+
+tr:nth-child(even) {
+  background-color: #dddddd;
+}
+
+td.impact.magnitude{
+    background-color: beige;
+}
+
+/* style code for the magnitude */
+
+td.time.day{
+    background-color: blanchedalmond;
+}
+
+/* style cocde for the date */  
+
+</style>
+</head>
+
+<script src="papa.html">
+
+</script>
+
+<body>
+
+<h2>California Earthquakes in 2016</h2>
+
+<table id="myTable">
+  <tr>
+    <th>Date</th>
+    <th>Magnitude</th>
+</tr>
+</table>
+
+</body>
+<script> 
+    var x = document.getElementById('myTable')
+    for (var i = 0; i<papa.objects.length; i++){
+        var myNewRow = document.createElement('tr');
+        var myNewCell1 = document.createElement('td');
+        var myNewCell2 = document.createElement('td');
+        myNewCell1.innerText = papa.objects[i].time.day;
+        myNewCell2.innerText = papa.objects[i].impact.magnitude;
+        myNewCell2.className = papa.objects[i].impact.magnitude; 
+        if(papa.objects[i].time.day == 'Republican') {myNewCell2.style.backgroundColor = 'red'}
+        if(papa.objects[i].time.day == 'Democrat') {myNewCell2.style.backgroundColor = 'blue'}
+        if(papa.objects[i].time.day == 'Independant') {myNewCell2.style.backgroundColor = 'yellow'}
+
+        myNewRow.append(myNewCell1)
+        myNewRow.append(myNewCell2)
+        x.append(myNewRow)
+    } // end of loop
+</script>
+</html>
