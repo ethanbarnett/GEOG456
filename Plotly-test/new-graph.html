@@ -17,7 +17,13 @@
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/plotly.js/2.14.0/plotly.min.js" integrity="sha512-XDnqTWsAcVl16AYJoBHumISzIYThowGjR67jeL53NSp6tajsq2qf5UeAWvk1n6Hp3M2iMsV/ewhPScBiLCDs9Q==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 
-<script src="https://raw.githubusercontent.com/ethanbarnett/GEOG456/main/Assignment3-Plotly/minmax_orange.csv"> </script>
+<script src="https://gisunc.github.io/GEOG456FALL2022Data/TMAX/tmax.js"> </script>
+
+<script>
+    var newY = []
+    for (var i=0; i<x.length;i++)
+    {newY.push(40)}
+</script>
 
 <body>
     <div id="myDiv">
@@ -27,14 +33,13 @@
 <script>
     
     var y = chTmax.map(e=>Number(e.TMAX))
-    var x = chTmax.map(e=>e.DATE)
+    var x = chTmax.map(e=>e.Date)
     // myAby10 = myA.map(num=>num*10)
 
     var trace1 = {
-  x: x,
-  y: y,
+  r: y,
   mode: 'markers',
-  type: 'bar',
+  type: 'barpolar',
   marker:{
     color: y, colorscale: 'portland'
   }
@@ -43,19 +48,7 @@
 var layout = {
     title: {
         text: 'Whoop Whoop!'
-    },
-    xaxis:{
-        title:{
-            text: 'date'
-        }
-    },
-
-    xaxis:{
-        title:{
-            text: 'temperature'
-        }
     }
-
 }
 
 // var trace2 = {
