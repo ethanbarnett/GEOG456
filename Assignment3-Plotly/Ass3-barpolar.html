@@ -17,7 +17,7 @@
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/plotly.js/2.14.0/plotly.min.js" integrity="sha512-XDnqTWsAcVl16AYJoBHumISzIYThowGjR67jeL53NSp6tajsq2qf5UeAWvk1n6Hp3M2iMsV/ewhPScBiLCDs9Q==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 
-<script src="https://gisunc.github.io/GEOG456FALL2022Data/TMAX/tmax.js"> </script>
+<script src="https://raw.githubusercontent.com/ethanbarnett/GEOG456/main/Assignment3-Plotly/drought-con.json"> </script>
 
 <body>
     <div id="myDiv">
@@ -26,8 +26,8 @@
 
 <script>
     
-    var y = chTmax.map(e=>Number(e.TMAX))
-    var x = chTmax.map(e=>e.Date)
+    var y = chTmax.map(e=>County)
+    var x = chTmax.map(e=>ConsecutiveWeeks)
     // myAby10 = myA.map(num=>num*10)
 
     var trace1 = {
