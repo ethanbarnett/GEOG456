@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Assignment 3 Scatter</title>
 </head>
 
 <style>
@@ -17,28 +17,35 @@
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/plotly.js/2.14.0/plotly.min.js" integrity="sha512-XDnqTWsAcVl16AYJoBHumISzIYThowGjR67jeL53NSp6tajsq2qf5UeAWvk1n6Hp3M2iMsV/ewhPScBiLCDs9Q==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 
-<script src="https://gisunc.github.io/GEOG456FALL2022Data/TMAX/tmax.js"> </script>
+<script src="filtered-co-drought.js"> </script>
 
 <body>
     <div id="myDiv">
 
     </div>
 
+    <p>This graph is very useful for showing change over time because it runs linearly, showing the difference between one value and the next. The disadvantage with this graph is that with error bars and many different points, it can become hard to read and also find the exact values for each point.</p>
+
 <script>
     
-    var y = chTmax.map(e=>Number(e.TMAX))
-    var x = chTmax.map(e=>e.Date)
+    var y = coWeek.map(e=>e.County)
+    var x = coWeek.map(e=>e.ConsecutiveWeeks)
     // myAby10 = myA.map(num=>num*10)
 
     var trace1 = {
-  x: x,
-  y: y,
+  r: y,
   mode: 'markers',
   type: 'scatter',
   marker:{
     color: y, colorscale: 'portland'
   }
 };
+
+var layout = {
+    title: {
+        text: 'Number of Consecutive Drought Weeks Within Colorado'
+    }
+}
 
 // var trace2 = {
 //   x: [2, 3, 4, 5],
@@ -56,7 +63,7 @@
 
 var data = [trace1];
 
-Plotly.newPlot('myDiv', data);
+Plotly.newPlot('myDiv', data, layout);
 
 </script>
 

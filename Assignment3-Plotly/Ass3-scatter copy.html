@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Assignment 3 Bar</title>
+    <title>Assignment 3 Heatmap</title>
 </head>
 
 <style>
@@ -24,7 +24,7 @@
 
     </div>
 
-    <p>This graph is generally the type that people reach for to display most sets of data: it is simple, easy to read, and easy to represent; everyone has seen and intperpreted a bar graoh before. Bar graphs do have the disadvantage of not being able to represent very sparse datasets containing a lot inputs, to say, it would not be able to show 50 different datasets; these graphs are also easy to manipulate to misrepresent data in a subjective way.</p>
+    <p>This graph is very useful for showing change over time because it runs linearly, showing the difference between one value and the next. The disadvantage with this graph is that with error bars and many different points, it can become hard to read and also find the exact values for each point.</p>
 
 <script>
     
@@ -35,7 +35,7 @@
     var trace1 = {
   r: y,
   mode: 'markers',
-  type: 'bar',
+  type: 'Heatmap',
   marker:{
     color: y, colorscale: 'portland'
   }

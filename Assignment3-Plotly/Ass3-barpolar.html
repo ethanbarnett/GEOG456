@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Assignment 3 Barpolar</title>
 </head>
 
 <style>
@@ -17,17 +17,19 @@
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/plotly.js/2.14.0/plotly.min.js" integrity="sha512-XDnqTWsAcVl16AYJoBHumISzIYThowGjR67jeL53NSp6tajsq2qf5UeAWvk1n6Hp3M2iMsV/ewhPScBiLCDs9Q==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 
-<script src="https://raw.githubusercontent.com/ethanbarnett/GEOG456/main/Assignment3-Plotly/drought-con.json"> </script>
+<script src="filtered-co-drought.js"> </script>
 
 <body>
     <div id="myDiv">
 
     </div>
 
+    <p>The barpolar graph has the advantage of making a large dataset quite easy to understand and quickly read; however, this graph is really only beneficial to very particular datasets, for example, a dataset that did not include elements of angle degrees or elements of a circle would be hard to read and understand on this graph type.</p>
+
 <script>
     
-    var y = chTmax.map(e=>County)
-    var x = chTmax.map(e=>ConsecutiveWeeks)
+    var y = coWeek.map(e=>e.County)
+    var x = coWeek.map(e=>e.ConsecutiveWeeks)
     // myAby10 = myA.map(num=>num*10)
 
     var trace1 = {
@@ -41,7 +43,7 @@
 
 var layout = {
     title: {
-        text: 'Whoop Whoop!'
+        text: 'Number of Consecutive Drought Weeks Within Colorado'
     }
 }
 
