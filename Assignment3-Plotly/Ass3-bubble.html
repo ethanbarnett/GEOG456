@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Assignment 3 Heatmap</title>
+    <title>Assignment 3 Bubble Plot</title>
 </head>
 
 <style>
@@ -24,8 +24,7 @@
 
     </div>
 
-    <p>This graph is very useful for showing change over time because it runs linearly, showing the difference between one value and the next. The disadvantage with this graph is that with error bars and many different points, it can become hard to read and also find the exact values for each point.</p>
-
+    <p>This graph is useful for showing the comparison between many different inputs; we are able to visually see (from the size of the bubbles) which inputst contain the highest values and the lowest ones. Even though the bubble sizes help, they can also make it hard to see exact values, or decern between inputs that have values that only vary by a small amount. </p>
 <script>
     
     var y = coWeek.map(e=>e.County)
@@ -36,7 +35,8 @@
   x: x,
   y: y,
   mode: 'markers',
-  type: 'bubbleplot',
+  size: 'variable',
+  type: 'scatter',
   marker:{
     color: y, colorscale: 'portland'
   }
