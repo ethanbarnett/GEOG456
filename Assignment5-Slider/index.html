@@ -11,9 +11,10 @@
    <script src="https://unpkg.com/leaflet@1.8.0/dist/leaflet.js"
    integrity="sha512-BB3hKbKWOc9Ez/TAwyWxNXeoV9c1v6FIeYiBieIWkpLjauysF18NzgR1MBNBXf8/KABdlkX68nAhlwcDFLGPCQ=="
    crossorigin=""></script>
-   <!-- <script src="CreepTable.csv"> //here is where we put the source of the data -->
+   
+   <script src="EarthCaliFivePlus.js"> //here is where we put the source of the data
 
-   <!-- </script> -->
+   </script>
 </head>
 
 <style>
@@ -32,10 +33,10 @@
         Click me!
     </button> 
 
-    <div id="map">Test</div>
+    <div id="map">Click</div>
 
 <script>
-    var map = L.map('map').setView([51.505, -0.09], 13); //put California area of interest here, lat and long; if it does not work try zooming out.
+    var map = L.map('map').setView([36.7783, -119.4179], 5); //put California area of interest here, lat and long; if it does not work try zooming out.
 
     L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', { //This is the tile layer
     maxZoom: 19,
@@ -49,7 +50,7 @@ var myStyle = {
 
 };
 
-var geojson = L.geoJSON(geojsonFeature, {style, myStyle}).addTo(map); //where it says "geojson feature," put the name of your imported file (california earthquake data).
+var geojson = L.geoJSON(Cali, {myStyle}).addTo(map); //where it says "geojson feature," put the name of your imported file (california earthquake data).
 
 </script>
     
