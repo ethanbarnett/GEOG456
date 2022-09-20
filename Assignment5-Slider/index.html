@@ -29,11 +29,14 @@
 
 </br>
 
+    <h3 id="daYear">Year</h3>
+    <input type="range" name="year" min="2015" max="2020" oninput="moveSlider(this.value)">
+
     <button onclick='geojson.setStyle({color:"yellow"})'> 
         Click me!
     </button> 
 
-    <div id="map">Click</div>
+    <div id="map"></div>
 
 <script>
     var map = L.map('map').setView([36.7783, -119.4179], 5); //put California area of interest here, lat and long; if it does not work try zooming out.
@@ -51,6 +54,13 @@ var myStyle = {
 };
 
 var geojson = L.geoJSON(Cali, {myStyle}).addTo(map); //where it says "geojson feature," put the name of your imported file (california earthquake data).
+
+function moveSlider(value) {
+    console.log(value)
+    document.getElementById('daYear').innerHTML = 'Year: ' + value
+}
+
+moveSlider("2015")
 
 </script>
     
