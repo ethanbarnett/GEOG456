@@ -37,9 +37,9 @@
     <h3 id="daYear">Year</h3>
     <input type="range" name="year" min="2015" max="2020" oninput="moveSlider(this.value)">
 
-    <button onclick='geojson.setStyle({color:"yellow"})'> 
+    <!-- <button onclick='geojson.setStyle({color:"yellow"})'> 
         Click me!
-    </button> 
+    </button>  -->
 
     <div id="map"></div>
 
@@ -64,7 +64,7 @@ var geojson = L.geoJSON(Cali, {myStyle}).addTo(map);
 
 function moveSlider(value) {
     console.log(value)
-    document.getElementById('daYear').innerHTML = 'Year: ' + value
+    document.getElementById('daYear').innerHTML = 'Not Functional Yet: ' + value
 }
 
 moveSlider("2015")
