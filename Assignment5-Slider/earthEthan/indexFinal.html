@@ -37,10 +37,6 @@
     <h3 id="daYear">Year</h3>
     <input type="range" name="year" min="2015" max="2020" oninput="moveSlider(this.value)">
 
-    <!-- <button onclick='geojson.setStyle({color:"yellow"})'> 
-        Click me!
-    </button>  -->
-
     <div id="map"></div>
 
 <script>
@@ -111,120 +107,6 @@ caliGeoJSON.addTo(map)
 }
 
 moveSlider("2015")
-
-// var circle = L.circle([35.9101667, -117.6848333], {
-//     color: 'green',
-//     //orignal color fill was #f03
-//     fillColor: 'green',
-//     fillOpacity: 0.5,
-//     //multiply magnitude by 10,000 to get radius amount
-//     radius: 54400
-// }).addTo(map);
-
-// var circle = L.circle([35.9011667, -117.7495], {
-//     color: 'yellow',
-//     fillColor: 'yellow',
-//     fillOpacity: 0.5,
-//     radius: 55000
-// }).addTo(map);
-
-// var circle = L.circle([35.7695, -117.5993333], {
-//     color: 'red',
-//     fillColor: 'red',
-//     fillOpacity: 0.5,
-//     radius: 71000
-// }).addTo(map);
-
-// var circle = L.circle([35.7603333, -117.575], {
-//     color: 'yellow',
-//     fillColor: 'yellow',
-//     fillOpacity: 0.5,
-//     radius: 53700
-// }).addTo(map);
-
-// var circle = L.circle([35.7053333, -117.5038333], {
-//     color: 'orange',
-//     fillColor: 'orange',
-//     fillOpacity: 0.5,
-//     radius: 64000
-// }).addTo(map);
-
-// var circle = L.circle([40.2735, -124.3003333], {
-//     color: 'yellow',
-//     fillColor: 'yellow',
-//     fillOpacity: 0.5,
-//     radius: 55800
-// }).addTo(map);
-
-// var circle = L.circle([33.8198333, -119.734], {
-//     color: 'green',
-//     fillColor: 'green',
-//     fillOpacity: 0.5,
-//     radius: 52900
-// }).addTo(map);
-
-// var circle = L.circle([38.3777, -118.8957], {
-//     color: 'yellow',
-//     fillColor: 'yellow',
-//     fillOpacity: 0.5,
-//     radius: 55000
-// }).addTo(map);
-
-// var circle = L.circle([38.3904, -118.8972], {
-//     color: 'yellow',
-//     fillColor: 'yellow',
-//     fillOpacity: 0.5,
-//     radius: 56000
-// }).addTo(map);
-
-// var circle = L.circle([38.3755, -118.8989], {
-//     color: 'yellow',
-//     fillColor: 'yellow',
-//     fillOpacity: 0.5,
-//     radius: 56000
-// }).addTo(map);
-
-// var circle = L.circle([38.8221667, -122.8413333], {
-//     color: 'green',
-//     fillColor: 'green',
-//     fillOpacity: 0.5,
-//     radius: 50100
-// }).addTo(map);
-
-// var circle = L.circle([39.3293333, -122.8018333], {
-//     color: 'green',
-//     fillColor: 'green',
-//     fillOpacity: 0.5,
-//     radius: 50900
-// }).addTo(map);
-
-// var circle = L.circle([33.4315, -116.4426667], {
-//     color: 'green',
-//     fillColor: 'green',
-//     fillOpacity: 0.5,
-//     radius: 51900
-// }).addTo(map);
-
-// // getting all the markers at once
-// function getAllMarkers() {
-
-// var allMarkersObjArray = []; // for marker objects
-// var allMarkersGeoJsonArray = []; // for readable geoJson markers
-
-// $.each(map._layers, function (ml) {
-
-//     if (map._layers[ml].feature) {
-
-//         allMarkersObjArray.push(this)
-//         allMarkersGeoJsonArray.push(JSON.stringify(this.toGeoJSON()))
-//     }
-// })
-
-// console.log(allMarkersObjArray);
-// }
-
-// // any html element such as button, div to call the function()
-// $(".get-markers").on("click", getAllMarkers);
 
 </script>
    
