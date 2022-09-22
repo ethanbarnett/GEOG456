@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Assignment 5: Leaflet with Sliders Part 2</title>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.8.0/dist/leaflet.css"
+   integrity="sha512-hoalWLoI8r4UszCkZ5kL8vayOGVae1oxXe/2A4AO6J9+580uKHDO3JdHb7NzwwzK5xr/Fs0W40kiNHxM9vyTtQ=="
+   crossorigin=""/>
+   <script src="https://unpkg.com/leaflet@1.8.0/dist/leaflet.js"
+   integrity="sha512-BB3hKbKWOc9Ez/TAwyWxNXeoV9c1v6FIeYiBieIWkpLjauysF18NzgR1MBNBXf8/KABdlkX68nAhlwcDFLGPCQ=="
+   crossorigin=""></script>
+   
+   <script src="FaultLine.js"> //here is where we put the source of the data
+
+   </script>
+
+   <script src="EarthCaliFivePlus.js">
+
+   </script>
+
+</head>
+
+<style>
+    #map {
+        width: 100%;
+        height: 500px;
+        background-color: beige;
+    }
+</style>
+
+<body>
+
+</br>
+
+    <h3 id="daYear">Year</h3>
+    <input type="range" name="year" min="2015" max="2020" oninput="moveSlider(this.value)">
+
+    <!-- <button onclick='geojson.setStyle({color:"yellow"})'> 
+        Click me!
+    </button>  -->
+
+    <div id="map"></div>
+
+<script>
+    var map = L.map('map').setView([36.7783, -119.4179], 5); //put California area of interest here, lat and long; if it does not work try zooming out.
+
+    L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', { //This is the tile layer
+    maxZoom: 19,
+    attribution: '© OpenStreetMap'
+}).addTo(map);
+
+var myStyle = {
+    "color": "#ff7800",
+    "weight": 0.25,
+    "opacity": 0.65
+
+};
+
+function myStyleTwo(feature) {
+        // console.log(feature.properties.Cessions_Y)
+        return {
+    "color": getColor(feature.properties.time),
+    "weight": .25,
+    "opacity": 0.65
+        }
+};
+
+var geojson = L.geoJSON(Fault, {myStyle}).addTo(map); //where it says "geojson feature," put the name of your imported file (california earthquake data).
+
+function geojsonMarkerOptions(magnitude){
+console.log(magnitude)
+    return  {
+    radius: magnitude*2,
+    fillColor: "#ff7800",
+    color: "red",
+    weight: 1,
+    opacity: 1,
+    fillOpacity: 0.3
+};}
+
+var selectedYear = 2020
+var caliGeoJSON = L.geoJSON(Cali, {
+    pointToLayer: function (feature, latlng) {
+        var dateInFeature = new Date(feature.properties.time)
+        var yearInFeature = dateInFeature.getFullYear()
+        // console.log(yearInFeature)
+        if ( yearInFeature< selectedYear){
+        return L.circleMarker(latlng, geojsonMarkerOptions(feature.properties.mag))};
+    }
+});
+caliGeoJSON.addTo(map)
+
+function moveSlider(value) {
+    // console.log(value)
+    selectedYear = value;
+    caliGeoJSON.remove()
+    caliGeoJSON = L.geoJSON(Cali, {
+    pointToLayer: function (feature, latlng) {
+        var dateInFeature = new Date(feature.properties.time)
+        var yearInFeature = dateInFeature.getFullYear()
+        // console.log(yearInFeature)
+        if ( yearInFeature< selectedYear){
+        return L.circleMarker(latlng, geojsonMarkerOptions(feature.properties.mag))};
+    }
+});
+caliGeoJSON.addTo(map)
+    //this is where we can change the name above the slider
+    document.getElementById('daYear').innerHTML = 'Year: ' + value
+}
+
+moveSlider("2015")
+
+// var circle = L.circle([35.9101667, -117.6848333], {
+//     color: 'green',
+//     //orignal color fill was #f03
+//     fillColor: 'green',
+//     fillOpacity: 0.5,
+//     //multiply magnitude by 10,000 to get radius amount
+//     radius: 54400
+// }).addTo(map);
+
+// var circle = L.circle([35.9011667, -117.7495], {
+//     color: 'yellow',
+//     fillColor: 'yellow',
+//     fillOpacity: 0.5,
+//     radius: 55000
+// }).addTo(map);
+
+// var circle = L.circle([35.7695, -117.5993333], {
+//     color: 'red',
+//     fillColor: 'red',
+//     fillOpacity: 0.5,
+//     radius: 71000
+// }).addTo(map);
+
+// var circle = L.circle([35.7603333, -117.575], {
+//     color: 'yellow',
+//     fillColor: 'yellow',
+//     fillOpacity: 0.5,
+//     radius: 53700
+// }).addTo(map);
+
+// var circle = L.circle([35.7053333, -117.5038333], {
+//     color: 'orange',
+//     fillColor: 'orange',
+//     fillOpacity: 0.5,
+//     radius: 64000
+// }).addTo(map);
+
+// var circle = L.circle([40.2735, -124.3003333], {
+//     color: 'yellow',
+//     fillColor: 'yellow',
+//     fillOpacity: 0.5,
+//     radius: 55800
+// }).addTo(map);
+
+// var circle = L.circle([33.8198333, -119.734], {
+//     color: 'green',
+//     fillColor: 'green',
+//     fillOpacity: 0.5,
+//     radius: 52900
+// }).addTo(map);
+
+// var circle = L.circle([38.3777, -118.8957], {
+//     color: 'yellow',
+//     fillColor: 'yellow',
+//     fillOpacity: 0.5,
+//     radius: 55000
+// }).addTo(map);
+
+// var circle = L.circle([38.3904, -118.8972], {
+//     color: 'yellow',
+//     fillColor: 'yellow',
+//     fillOpacity: 0.5,
+//     radius: 56000
+// }).addTo(map);
+
+// var circle = L.circle([38.3755, -118.8989], {
+//     color: 'yellow',
+//     fillColor: 'yellow',
+//     fillOpacity: 0.5,
+//     radius: 56000
+// }).addTo(map);
+
+// var circle = L.circle([38.8221667, -122.8413333], {
+//     color: 'green',
+//     fillColor: 'green',
+//     fillOpacity: 0.5,
+//     radius: 50100
+// }).addTo(map);
+
+// var circle = L.circle([39.3293333, -122.8018333], {
+//     color: 'green',
+//     fillColor: 'green',
+//     fillOpacity: 0.5,
+//     radius: 50900
+// }).addTo(map);
+
+// var circle = L.circle([33.4315, -116.4426667], {
+//     color: 'green',
+//     fillColor: 'green',
+//     fillOpacity: 0.5,
+//     radius: 51900
+// }).addTo(map);
+
+// // getting all the markers at once
+// function getAllMarkers() {
+
+// var allMarkersObjArray = []; // for marker objects
+// var allMarkersGeoJsonArray = []; // for readable geoJson markers
+
+// $.each(map._layers, function (ml) {
+
+//     if (map._layers[ml].feature) {
+
+//         allMarkersObjArray.push(this)
+//         allMarkersGeoJsonArray.push(JSON.stringify(this.toGeoJSON()))
+//     }
+// })
+
+// console.log(allMarkersObjArray);
+// }
+
+// // any html element such as button, div to call the function()
+// $(".get-markers").on("click", getAllMarkers);
+
+</script>
+   
+</body>
+</html>
