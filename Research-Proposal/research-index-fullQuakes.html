@@ -5,24 +5,34 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Final Research Project Working</title>
-    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.8.0/dist/leaflet.css"
+
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.8.0/dist/leaflet.css"
    integrity="sha512-hoalWLoI8r4UszCkZ5kL8vayOGVae1oxXe/2A4AO6J9+580uKHDO3JdHb7NzwwzK5xr/Fs0W40kiNHxM9vyTtQ=="
    crossorigin=""/>
-   <script src="https://unpkg.com/leaflet@1.8.0/dist/leaflet.js"
+<script src="https://unpkg.com/leaflet@1.8.0/dist/leaflet.js"
    integrity="sha512-BB3hKbKWOc9Ez/TAwyWxNXeoV9c1v6FIeYiBieIWkpLjauysF18NzgR1MBNBXf8/KABdlkX68nAhlwcDFLGPCQ=="
    crossorigin=""></script>
    
-   <script src="./data/FaultLine.js"> 
+<script src="./data/FaultLine.js"> 
     
-   </script>
+</script>
 
-   <script src="./data/EarthquakesSixPlus-full-ManClip.js"> //here is where we put the source of the data
+<script src="./data/EarthquakesSixPlus-full-ManClip.js"> //here is where we put the source of the data
 
-   </script>
+</script>
+
+<script src="./data/CA_faults_All.js">
+    
+</script>
 
 </head>
 
 <style>
+
+    /* body {
+        background-color: blanchedalmond
+    } */
+    
     #map {
         width: 100%;
         height: 500px;
@@ -46,12 +56,16 @@
         California
     </button>
 
+    <button onclick = 'map.setView([35.1361, -119.6756], 7)'> 
+        San Andreas Fault
+    </button>
+
     <div id="map"></div>
 
 <script>
     var map = L.map('map').setView([36.7783, -119.4179], 5); //put California area of interest here, lat and long; if it does not work try zooming out.
-
-    L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', { //This is the tile layer
+  
+L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', { //This is the tile layer
     maxZoom: 19,
     attribution: '© OpenStreetMap'
 }).addTo(map);
@@ -62,6 +76,11 @@ var myStyle = {
     "opacity": 0.65
 
 };
+
+var myStyle2 = {
+    "color": "#ff7800",
+    "opacity": 0.4
+}
 
 function myStyleTwo(feature) {
         // console.log(feature.properties.Cessions_Y)
@@ -74,6 +93,8 @@ function myStyleTwo(feature) {
 
 
 var geojson = L.geoJSON(Fault, {myStyle}).addTo(map); //where it says "geojson feature," put the name of your imported file (california earthquake data).
+
+var geojson2 = L.geoJSON(Faultz, {myStyle2}).addTo(map);
 
 function geojsonMarkerOptions(magnitude){
 console.log(magnitude)
@@ -118,7 +139,7 @@ caliGeoJSON.addTo(map)
 
 moveSlider("1920")
 
-var POI1 = L.marker([39.002174, -123.697867]).addTo(map);
+var POI1 = L.marker([35.1361, -119.6756]).addTo(map);
     POI1.bindPopup("<b>San Andreas Fault</b>").openPopup();
 
 var PointsOfInterest = L.layerGroup([POI1]);

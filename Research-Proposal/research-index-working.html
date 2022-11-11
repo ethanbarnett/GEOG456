@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Final Research Project Working</title>
+
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.8.0/dist/leaflet.css"
+   integrity="sha512-hoalWLoI8r4UszCkZ5kL8vayOGVae1oxXe/2A4AO6J9+580uKHDO3JdHb7NzwwzK5xr/Fs0W40kiNHxM9vyTtQ=="
+   crossorigin=""/>
+<script src="https://unpkg.com/leaflet@1.8.0/dist/leaflet.js"
+   integrity="sha512-BB3hKbKWOc9Ez/TAwyWxNXeoV9c1v6FIeYiBieIWkpLjauysF18NzgR1MBNBXf8/KABdlkX68nAhlwcDFLGPCQ=="
+   crossorigin=""></script>
+
+   <link rel="stylesheet" href="Leaflet_Cluster_Page_files/leaflet.css" integrity="sha512-07I2e+7D8p6he1SIM+1twR5TIrhUQn9+I6yjqD53JQjFiMf8EtC93ty0/5vJTZGF8aAocvHYNEDJajGdNx1IsQ==" crossorigin="">
+	<script src="Leaflet_Cluster_Page_files/leaflet-src.js" integrity="sha512-WXoSHqw/t26DszhdMhOXOkI7qCiv5QWXhH9R7CgvgZMHz1ImlkVQ3uNsiQKu5wwbbxtPzFXd1hK4tzno2VqhpA==" crossorigin=""></script>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" href="Leaflet_Cluster_Page_files/screen.css">
+
+	<link rel="stylesheet" href="Leaflet_Cluster_Page_files/MarkerCluster.css">
+	<link rel="stylesheet" href="Leaflet_Cluster_Page_files/MarkerCluster.Default.css">
+	<script src="Leaflet_Cluster_Page_files/leaflet.markercluster-src.js"></script>
+	<script src="Leaflet_Cluster_Page_files/realworld.388.js"></script>
+   
+<script id='SAfault' src="./data/FaultLine.js" alt=""> 
+</script>
+
+<script src="./data/EarthquakesSixPlus-full-ManClip.js"> //here is where we put the source of the data
+
+</script>
+
+<script src="./data/CA_faults_All.js">
+    
+</script>
+
+</head>
+
+<style>
+
+    /* body {
+        background-color: blanchedalmond
+    } */
+    
+    #map {
+        width: 100%;
+        height: 500px;
+        background-color: beige;
+    }
+</style>
+
+<body>
+
+    <div id="map" class="leaflet-container leaflet-touch leaflet-retina leaflet-fade-anim leaflet-grab leaflet-touch-drag leaflet-touch-zoom" style="position: relative;" tabindex="0"><div class="leaflet-pane leaflet-map-pane" style="transform: translate3d(0px, 0px, 0px);"><div class="leaflet-pane leaflet-tile-pane"><div class="leaflet-layer " style="z-index: 1; opacity: 1;"><div class="leaflet-tile-container leaflet-zoom-animated" style="z-index: 18; transform: translate3d(0px, 0px, 0px) scale(1);"><img alt="" role="presentation" src="Leaflet_Cluster_Page_files/5026_002.png" class="leaflet-tile leaflet-tile-loaded" style="width: 256px; height: 256px; transform: translate3d(225px, 65px, 0px); opacity: 1;"><img alt="" role="presentation" src="Leaflet_Cluster_Page_files/5026.png" class="leaflet-tile leaflet-tile-loaded" style="width: 256px; height: 256px; transform: translate3d(481px, 65px, 0px); opacity: 1;"><img alt="" role="presentation" src="Leaflet_Cluster_Page_files/5027_004.png" class="leaflet-tile leaflet-tile-loaded" style="width: 256px; height: 256px; transform: translate3d(225px, 321px, 0px); opacity: 1;"><img alt="" role="presentation" src="Leaflet_Cluster_Page_files/5027.png" class="leaflet-tile leaflet-tile-loaded" style="width: 256px; height: 256px; transform: translate3d(481px, 321px, 0px); opacity: 1;"><img alt="" role="presentation" src="Leaflet_Cluster_Page_files/5025_002.png" class="leaflet-tile leaflet-tile-loaded" style="width: 256px; height: 256px; transform: translate3d(225px, -191px, 0px); opacity: 1;"><img alt="" role="presentation" src="Leaflet_Cluster_Page_files/5025_004.png" class="leaflet-tile leaflet-tile-loaded" style="width: 256px; height: 256px; transform: translate3d(481px, -191px, 0px); opacity: 1;"><img alt="" role="presentation" src="Leaflet_Cluster_Page_files/5026_003.png" class="leaflet-tile leaflet-tile-loaded" style="width: 256px; height: 256px; transform: translate3d(-31px, 65px, 0px); opacity: 1;"><img alt="" role="presentation" src="Leaflet_Cluster_Page_files/5026_004.png" class="leaflet-tile leaflet-tile-loaded" style="width: 256px; height: 256px; transform: translate3d(737px, 65px, 0px); opacity: 1;"><img alt="" role="presentation" src="Leaflet_Cluster_Page_files/5027_003.png" class="leaflet-tile leaflet-tile-loaded" style="width: 256px; height: 256px; transform: translate3d(-31px, 321px, 0px); opacity: 1;"><img alt="" role="presentation" src="Leaflet_Cluster_Page_files/5027_002.png" class="leaflet-tile leaflet-tile-loaded" style="width: 256px; height: 256px; transform: translate3d(737px, 321px, 0px); opacity: 1;"><img alt="" role="presentation" src="Leaflet_Cluster_Page_files/5028_004.png" class="leaflet-tile leaflet-tile-loaded" style="width: 256px; height: 256px; transform: translate3d(225px, 577px, 0px); opacity: 1;"><img alt="" role="presentation" src="Leaflet_Cluster_Page_files/5028_002.png" class="leaflet-tile leaflet-tile-loaded" style="width: 256px; height: 256px; transform: translate3d(481px, 577px, 0px); opacity: 1;"><img alt="" role="presentation" src="Leaflet_Cluster_Page_files/5025_003.png" class="leaflet-tile leaflet-tile-loaded" style="width: 256px; height: 256px; transform: translate3d(-31px, -191px, 0px); opacity: 1;"><img alt="" role="presentation" src="Leaflet_Cluster_Page_files/5025.png" class="leaflet-tile leaflet-tile-loaded" style="width: 256px; height: 256px; transform: translate3d(737px, -191px, 0px); opacity: 1;"><img alt="" role="presentation" src="Leaflet_Cluster_Page_files/5028_003.png" class="leaflet-tile leaflet-tile-loaded" style="width: 256px; height: 256px; transform: translate3d(-31px, 577px, 0px); opacity: 1;"><img alt="" role="presentation" src="Leaflet_Cluster_Page_files/5028.png" class="leaflet-tile leaflet-tile-loaded" style="width: 256px; height: 256px; transform: translate3d(737px, 577px, 0px); opacity: 1;"></div></div></div><div class="leaflet-pane leaflet-shadow-pane"></div><div class="leaflet-pane leaflet-overlay-pane"></div><div class="leaflet-pane leaflet-marker-pane"><div class="leaflet-marker-icon marker-cluster marker-cluster-medium leaflet-zoom-animated leaflet-interactive" style="margin-left: -20px; margin-top: -20px; width: 40px; height: 40px; transform: translate3d(229px, 379px, 0px); z-index: 379;" tabindex="0"><div><span>32</span></div></div><div class="leaflet-marker-icon marker-cluster marker-cluster-medium leaflet-zoom-animated leaflet-interactive" style="margin-left: -20px; margin-top: -20px; width: 40px; height: 40px; transform: translate3d(199px, 247px, 0px); z-index: 247;" tabindex="0"><div><span>23</span></div></div><div class="leaflet-marker-icon marker-cluster marker-cluster-medium leaflet-zoom-animated leaflet-interactive" style="margin-left: -20px; margin-top: -20px; width: 40px; height: 40px; transform: translate3d(323px, 227px, 0px); z-index: 227;" tabindex="0"><div><span>34</span></div></div><div class="leaflet-marker-icon marker-cluster marker-cluster-small leaflet-zoom-animated leaflet-interactive" style="margin-left: -20px; margin-top: -20px; width: 40px; height: 40px; transform: translate3d(292px, 379px, 0px); z-index: 379;" tabindex="0"><div><span>6</span></div></div><div class="leaflet-marker-icon marker-cluster marker-cluster-large leaflet-zoom-animated leaflet-interactive" style="margin-left: -20px; margin-top: -20px; width: 40px; height: 40px; transform: translate3d(293px, 302px, 0px); z-index: 302;" tabindex="0"><div><span>293</span></div></div></div><div class="leaflet-pane leaflet-tooltip-pane"></div><div class="leaflet-pane leaflet-popup-pane"></div><div class="leaflet-proxy leaflet-zoom-animated"></div></div><div class="leaflet-control-container"><div class="leaflet-top leaflet-left"><div class="leaflet-control-zoom leaflet-bar leaflet-control"><a class="leaflet-control-zoom-in" href="#" title="Zoom in" role="button" aria-label="Zoom in">+</a><a class="leaflet-control-zoom-out" href="#" title="Zoom out" role="button" aria-label="Zoom out">-</a></div></div><div class="leaflet-top leaflet-right"></div><div class="leaflet-bottom leaflet-left"></div><div class="leaflet-bottom leaflet-right"><div class="leaflet-control-attribution leaflet-control"><a href="http://leafletjs.com/" title="A JS library for interactive maps">Leaflet</a> | © <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors, Points © 2012 LINZ</div></div></div></div>
+	<span>Mouse over a cluster to see the bounds of its Earthquakes and click a cluster to zoom to those bounds</span>
+	<script type="text/javascript">
+
+		var tiles = L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+				maxZoom: 18,
+				attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors, Points &copy 2012 LINZ'
+			}),
+			latlng = L.latLng(36.7783, -119.4179);
+
+		var map = L.map('map', {center: latlng, zoom: 5, layers: [tiles]});
+
+		var markers = L.markerClusterGroup();
+		
+		for (var i = 0; i < coordinates.length; i++) {
+			var a = coordinates[i];
+			var title = a[2];
+			var marker = L.marker(new L.LatLng(a[0], a[1]), { title: title });
+			marker.bindPopup(title);
+			markers.addLayer(marker);
+		}
+
+		map.addLayer(markers);
+
+	</script>
+
+</br>
+
+    <h3 id="daYear">Year</h3>
+    <input type="range" name="year" min="1920" max="2020" oninput="moveSlider(this.value)">
+
+    <button onclick = 'map.setView([37.7749, -122.4194], 7)'> 
+        San Francisco
+    </button>
+
+    
+    <button onclick = 'map.setView([36.7783, -119.4179], 5)'> 
+        California
+    </button>
+
+    <button onclick = 'map.setView([35.1361, -119.6756], 7)'> 
+        San Andreas Fault
+    </button>
+
+    <button onclick="myFunction ('SAfault')">Visible</button>
+
+    <div id="map"></div>
+
+<script>
+    var map = L.map('map').setView([36.7783, -119.4179], 5); //put California area of interest here, lat and long; if it does not work try zooming out.
+
+    function myFunction(id){
+        var vecs = document.getElementsByTagName('script')
+        for(var i=0; i< vecs.length; i++){vecs[i].style.visibility='hidden'}
+        var daImg = document.getElementById(id)
+        daVec.style.visibility = 'visible'
+        console.log(daVec)
+    }
+// L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', { //This is the tile layer
+//     maxZoom: 19,
+//     attribution: '© OpenStreetMap'
+// }).addTo(map);
+
+var myStyle = {
+    "color": "#ff7800",
+    "weight": 0.25,
+    "opacity": 0.65
+
+};
+
+var myStyle2 = {
+    "color": "#ff7800",
+    "opacity": 0.4
+}
+
+function myStyleTwo(feature) {
+        // console.log(feature.properties.Cessions_Y)
+        return {
+    "color": getColor(feature.properties.time),
+    "weight": .25,
+    "opacity": 0.65
+        }
+};
+
+
+var geojson = L.geoJSON(Fault, {myStyle}).addTo(map); //where it says "geojson feature," put the name of your imported file (california earthquake data).
+
+var geojson2 = L.geoJSON(Faultz, {myStyle2}).addTo(map);
+
+function geojsonMarkerOptions(magnitude){
+console.log(magnitude)
+    return  {
+    radius: magnitude*2,
+    fillColor: "#ff7800",
+    color: "red",
+    weight: 1,
+    opacity: 1,
+    fillOpacity: 0.3
+};}
+
+var selectedYear = 2020
+var caliGeoJSON = L.geoJSON(CaliFull, {             //here is the first Cali tag
+    pointToLayer: function (feature, latlng) {
+        var dateInFeature = new Date(feature.properties.time)
+        var yearInFeature = dateInFeature.getFullYear()
+        // console.log(yearInFeature)
+        if ( yearInFeature< selectedYear){
+        return L.circleMarker(latlng, geojsonMarkerOptions(feature.properties.mag))};
+    }
+});
+caliGeoJSON.addTo(map)
+
+function moveSlider(value) {
+    // console.log(value)
+    selectedYear = value;
+    caliGeoJSON.remove()
+    caliGeoJSON = L.geoJSON(CaliFull, {            //here is the second Cali tag
+    pointToLayer: function (feature, latlng) {
+        var dateInFeature = new Date(feature.properties.time)
+        var yearInFeature = dateInFeature.getFullYear()
+        // console.log(yearInFeature)
+        if ( yearInFeature< selectedYear){
+        return L.circleMarker(latlng, geojsonMarkerOptions(feature.properties.mag))};
+    }
+});
+caliGeoJSON.addTo(map)
+    //this is where we can change the name above the slider
+    document.getElementById('daYear').innerHTML = 'Year: ' + value
+}
+
+moveSlider("1920")
+
+var POI1 = L.marker([35.1361, -119.6756]).addTo(map);
+    POI1.bindPopup("<b>San Andreas Fault</b>").openPopup();
+
+var PointsOfInterest = L.layerGroup([POI1]);
+
+var overlayMaps = {
+    "Points of Interest": POI1
+};
+
+// var layerControl = L.control.layers(overlayMaps).addTo(map); //from here down to the end is the legend code
+
+// var legend = L.control({position: 'bottomleft'});
+//     legend.onAdd = function (map) {
+
+//     var div = L.DomUtil.create('div', 'info legend');
+//     labels = ['<strong>Magnitudes</strong>'],
+//     categories = ['6.0 - 6.25','6.26 - 6.5','6.51 - 6.75','6.76 - 7.0','7.1 - 7.5'];
+
+//     for (var i = 0; i < categories.length; i++) {
+
+//             div.innerHTML += 
+//             labels.push(
+//                 '<i class="circle" style="background:' + getColor(categories[i]) + '"></i> ' +
+//             (categories[i] ? categories[i] : '+'));
+
+//         }
+//         div.innerHTML = labels.join('<br>');
+//     return div;
+//     };
+//     legend.addTo(map);
+
+</script>
+   
+</body>
+</html>
