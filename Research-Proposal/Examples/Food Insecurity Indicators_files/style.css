@@ -1,0 +1,118 @@
+h1 {
+    font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    font-size: 36px;
+    position: relative;
+    top: 10%;
+    text-align: center;
+    outline-style: ridge;
+    -webkit-text-stroke-width: 1px;
+    }
+    h2 {
+        font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    }
+    h3 {
+        font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    }
+    .legend {
+        line-height: 18px;
+        color: #000;
+        background-color: #ffffff;
+    }
+    .legendMC {
+        line-height: 18px;
+        color: #000;
+        background-color: #ffffff;
+    }
+    .legendD {
+        line-height: 18px;
+        color: #000;
+        background-color: #ffffff;
+    }
+    .legendE {
+        line-height: 18px;
+        color: #000;
+        background-color: #ffffff;
+    }
+    .legendIB {
+        line-height: 18px;
+        color: #000;
+        background-color: #ffffff;
+    }
+    .legendIL {
+        line-height: 18px;
+        color: #000;
+        background-color: #ffffff;
+    }
+    .legendP {
+        line-height: 18px;
+        color: #000;
+        background-color: #ffffff;
+    }
+    .legendRE {
+        line-height: 18px;
+        color: #000;
+        background-color: #ffffff;
+    }
+    .legendU {
+        line-height: 18px;
+        color: #000;
+        background-color: #ffffff;
+    }
+    .legend i {
+        width: 18px;
+        height: 18px;
+        float: left;
+        margin-right: 8px;
+        opacity: 0.7; 
+    }
+    #map { height: 400px;
+        width: 900px;
+        background-color: lightslategray;
+        text-align: center; 
+    }
+    #mapMC { height: 400px;
+        width: 900px;
+        background-color: lightslategray;
+        text-align: center; 
+    }
+    #mapD { height: 400px;
+        width: 900px;
+        background-color: lightslategray;
+        text-align: center; 
+    }
+    #mapE { height: 400px;
+        width: 900px;
+        background-color: lightslategray;
+        text-align: center; 
+    }
+    #mapIB { height: 400px;
+        width: 900px;
+        background-color: lightslategray;
+        text-align: center; 
+    }
+    #mapIL { height: 400px;
+        width: 900px;
+        background-color: lightslategray;
+        text-align: center; 
+    }
+    #mapP { height: 400px;
+        width: 900px;
+        background-color: lightslategray;
+        text-align: center; 
+    }
+    #mapRE { height: 400px;
+        width: 900px;
+        background-color: lightslategray;
+        text-align: center; 
+    }
+    #mapU { height: 400px;
+        width: 900px;
+        background-color: lightslategray;
+        text-align: center; 
+    }
+    .leaflet-container {
+        height: 400px;
+        width: 600px;
+        max-width: 100%;
+        max-height: 100%;
+    }
